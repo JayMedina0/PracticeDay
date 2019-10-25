@@ -14,35 +14,36 @@ import java.util.List;
 @RequestMapping("/motorcycle")
 public class MotorcycleController {
 
-    @Autowired
     MotorcycleRepository motorcycleRepository;
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Motorcycle addMotorcycle (@RequestBody @Valid Motorcycle motorcycle){
+    public Motorcycle addMotorcycle(@RequestBody @Valid Motorcycle motorcycle) {
         return motorcycleRepository.save(motorcycle);
     }
+
     @GetMapping(value = "/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Motorcycle getMotorcycle (@PathVariable int id){
-        return null;
+    public Motorcycle getMotorcycle(@PathVariable int id) {
+        return motorcycleRepository.getOne(id);
     }
 
     @GetMapping
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Motorcycle> getAllMotorcycle(){
-        return null;
+    public List<Motorcycle> getAllMotorcycle() {
+        return motorcycleRepository.findAll();
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @ResponseStatus(value = HttpStatus.OK)
-    public void updateMotorcycle (@PathVariable int id, @RequestBody Motorcycle motorcycle){
-
+    public void updateMotorcycle( @RequestBody Motorcycle motorcycle) {
+        motorcycleRepository.save(motorcycle);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public void deleteMotorcycle(@PathVariable int id){
-
+    public void deleteMotorcycle(@PathVariable int id) {
+        motorcycleRepository.deleteById(id);
     }
+
 }

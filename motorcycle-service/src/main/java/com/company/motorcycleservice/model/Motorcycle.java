@@ -1,15 +1,17 @@
 package com.company.motorcycleservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.javafx.beans.IDProperty;
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="moto_inventory")
 public class Motorcycle {
 
     @Id
