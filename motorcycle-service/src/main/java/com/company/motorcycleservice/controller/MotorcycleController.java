@@ -20,7 +20,7 @@ public class MotorcycleController {
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
     public Motorcycle addMotorcycle (@RequestBody @Valid Motorcycle motorcycle){
-        return null;
+        return motorcycleRepository.save(motorcycle);
     }
     @GetMapping(value = "/{id}")
     @ResponseStatus(value = HttpStatus.OK)

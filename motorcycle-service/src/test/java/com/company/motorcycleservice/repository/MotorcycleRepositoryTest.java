@@ -23,7 +23,7 @@ public class MotorcycleRepositoryTest {
     }
 
     @Test
-    AddMotorycle{
+    public void AddMotorcycle(){
 
     }
 

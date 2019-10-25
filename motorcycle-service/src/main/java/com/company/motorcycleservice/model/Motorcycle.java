@@ -6,10 +6,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -25,23 +22,23 @@ public class Motorcycle {
     private BigDecimal price;
     @Column
     @NotNull
-    @Max(20)
+    @Size(max = 20)
     private String vin;
     @Column
     @NotNull
-    @Max(20)
+    @Size(max = 20)
     private String make;
     @Column
     @NotNull
-    @Max(20)
+    @Size(max = 20)
     private String model;
     @Column
     @NotNull
-    @Max(4)
+    @Size(max = 4)
     private String year;
     @Column
     @NotNull
-    @Max(20)
+    @Size(max = 20)
     private String color;
 
     public Motorcycle(int id, @NotNull @DecimalMin(value = "0.01", inclusive = true) @DecimalMax(value = "9999999.99", inclusive = true) BigDecimal price, @NotNull @Max(20) String vin, @NotNull @Max(20) String make, @NotNull @Max(20) String model, @NotNull @Max(4) String year, @NotNull @Max(20) String color) {
